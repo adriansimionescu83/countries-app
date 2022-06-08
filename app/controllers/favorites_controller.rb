@@ -14,6 +14,7 @@ class FavoritesController < ApplicationController
     authorize @favorite
   end
 
+  #work in progress, need to figure out how to call this method from the index of countries
   def update
     favorite = Favorite.where(country: Country.find(params[:country]), user: current_user)
     if favorite == []
