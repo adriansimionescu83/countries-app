@@ -1,0 +1,5 @@
+<ul class="list-group">
+  <% @favorites.each do |favorite| %>
+    <li class="list-group-item list-group-item-primary"> <%= favorite.country.name %> </li>
+  <% end %>
+</ul>

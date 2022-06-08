@@ -1,0 +1,16 @@
+<div class="container">
+  <h2>Weather forecast for <strong><%= @country.name %></strong></h2><hr>
+    <% @country.forecast_weather.each do |day| %>
+
+    <div class="card-daily-weather">
+      <%= image_tag day[:condition] %>
+
+      <div class="card-daily-weather-infos">
+        <h2>Date: <strong><%= day[:date] %></strong></h2>
+        <p>Average Temperature: <strong><%= day[:avgtemp_c] %> &#8451; / <%= day[:avgtemp_f] %> &#8457; </strong></p>
+        <p>Average Humidity: <strong><%= day[:avghumidity] %> % </strong>
+      </div>
+    </div>
+
+  <% end %>
+</div>

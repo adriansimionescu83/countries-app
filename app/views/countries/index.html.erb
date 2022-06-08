@@ -1,0 +1,28 @@
+  <div class="container">
+  <i class="bi bi-star-fill"></i>
+  <% @countries.each do |country| %>
+  <div class="col">
+
+      <div class="card-daily-weather">
+        <%= link_to country_path(country), class: "text-decoration-none" do %>
+          <div class="card-daily-weather-details">
+            <%= image_tag country.current_weather["condition"] %>
+
+            <div class="card-daily-weather-infos">
+              <h2> <strong><%= country.name %></strong></h2>
+              <p>Average Temperature: <strong><%= country.current_weather["temp_c"] %> &#8451; / <%= country.current_weather["temp_f"] %> &#8457; </strong></p>
+              <p>Humidity: <strong><%= country.current_weather["humidity"] %>%</strong>
+            </div>
+          </div>
+        <% end %>
+
+        <div class="card-daily-weather-favorite">
+             <i class="bi bi-star"></i>
+            <%# <i class="bi bi-star"></i> %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<%== pagy_bootstrap_nav(@pagy) %>
