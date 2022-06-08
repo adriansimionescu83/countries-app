@@ -2,7 +2,7 @@
   <% @countries.each do |country| %>
   <div class="col">
 
-      <div class="card-daily-weather">
+      <div class="card-daily-weather" data-controller="favorites">
         <%= link_to country_path(country), class: "text-decoration-none" do %>
           <div class="card-daily-weather-details">
             <%= image_tag country.current_weather["condition"] %>
@@ -16,10 +16,8 @@
         <% end %>
 
         <div class="card-daily-weather-favorite">
-        <%= link_to "#" do%>
-             <i class="bi bi-star"></i>
-            <%# <i class="bi bi-star"></i> %>
-        <% end %>
+          <i class="bi bi-star" data-favorites-target="setFavorite" data-action="click->favorites#setFav"></i>
+          <i class="bi bi-star-fill" data-favorites-target="resetFavorite" data-action="click->favorites#resetFav"></i>
         </div>
       </div>
     </div>
