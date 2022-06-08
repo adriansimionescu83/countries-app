@@ -1,2 +1,13 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1512076249812-fd58fb2c8748?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1738&q=80);">
+<%# <%= image_tag "countries.jpg", class: "banner", style: "background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4))" %>
+  <div class="container">
+    <h1>Find out the <strong>weather conditions</strong> in the countries you want to travel!</h1>
+    <p>It's that simple, just create a free account and enjoy!</p>
+
+    <% if user_signed_in? %>
+      <%= link_to "Countries", countries_path, class: "btn btn-flat" %></li>
+    <% else %>
+      <%= link_to "Login", new_user_session_path, class: "btn btn-flat" %>
+    <% end %>
+  </div>
+</div>
