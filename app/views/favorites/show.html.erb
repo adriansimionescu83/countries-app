@@ -1,6 +1,6 @@
 <div class="container">
-  <h2>Weather forecast for <strong><%= @country.name %></strong></h2><hr>
-    <% @country.forecast_weather.each do |day| %>
+  <h2>Weather forecast for <strong><%= @favorite.country.name %></strong></h2><hr>
+    <% @favorite.country.forecast_weather.each do |day| %>
     <div class="card-daily-weather-details">
 
       <div class="card-daily-weather">

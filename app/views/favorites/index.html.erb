@@ -1,5 +1,21 @@
-<ul class="list-group">
+  <div class="container">
   <% @favorites.each do |favorite| %>
-    <li class="list-group-item list-group-item-primary"> <%= favorite.country.name %> </li>
+  <div class="col" >
+      <div class="card-daily-weather">
+
+        <%= link_to favorite_path(favorite), class: "text-decoration-none" do %>
+          <div class="card-daily-weather-details">
+            <%= image_tag favorite.country.current_weather["condition"] %>
+
+            <div class="card-daily-weather-infos">
+              <h2> <strong><%= favorite.country.name %></strong></h2>
+              <p>Average Temperature: <strong><%= favorite.country.current_weather["temp_c"] %> &#8451; / <%= favorite.country.current_weather["temp_f"] %> &#8457; </strong></p>
+              <p>Humidity: <strong><%= favorite.country.current_weather["humidity"] %>%</strong>
+            </div>
+          </div>
+        <% end %>
+
+      </div>
+    </div>
   <% end %>
-</ul>
+</div>
