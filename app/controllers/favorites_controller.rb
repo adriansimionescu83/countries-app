@@ -5,6 +5,7 @@ class FavoritesController < ApplicationController
 
   def update_favorites
     favorite = Favorite.where(country: Country.find(params[:country_id]), user: current_user)
+
     if favorite == []
       #create the favorite
       Favorite.create(country: Country.find(params[:country_id]), user: current_user)

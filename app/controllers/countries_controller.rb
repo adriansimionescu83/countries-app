@@ -8,9 +8,7 @@ class CountriesController < ApplicationController
 
   def index
     @pagy, @countries = pagy(Country.all)
-    # api_current_weather(@countries.entries)
-
-    # Add here the logic to retrieve the weather info for each country
+    api_current_weather(@countries.entries)
   end
 
   def show
