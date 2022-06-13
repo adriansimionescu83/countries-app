@@ -17,4 +17,8 @@ class FavoritePolicy < ApplicationPolicy
   def show?
     true
   end
+
+  def update_favorites?
+    true
+  end
 end

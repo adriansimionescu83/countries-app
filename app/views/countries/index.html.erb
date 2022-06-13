@@ -1,7 +1,6 @@
-  <div class="container">
+  <div class="container" data-controller="countries">
   <% @countries.each do |country| %>
-  <div class="col">
-
+  <div class="col" >
       <div class="card-daily-weather">
         <%= link_to country_path(country), class: "text-decoration-none" do %>
           <div class="card-daily-weather-details">
@@ -16,10 +15,11 @@
         <% end %>
 
         <div class="card-daily-weather-favorite">
-        <%= link_to "#" do%>
-             <i class="bi bi-star"></i>
-            <%# <i class="bi bi-star"></i> %>
-        <% end %>
+          <% if Favorite.exists?(country_id: country.id, user_id: current_user.id) %>
+                <i class="bi bi-star-fill" data-path="<%= update_favorites_favorites_path %>" data-country-id="<%= country.id %>" data-user-id="<%= current_user.id %>" data-action="click->countries#send"></i>
+          <% else %>
+              <i class="bi bi-star" data-path="<%= update_favorites_favorites_path %>" data-country-id="<%= country.id %>" data-user-id="<%= current_user.id %>" data-action="click->countries#send"></i>
+          <% end %>
         </div>
       </div>
     </div>

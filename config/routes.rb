@@ -10,6 +10,10 @@ Rails.application.routes.draw do
 
   root to: "pages#home"
   resources :countries, only: [:index, :show]
-  resources :favorites
+  resources :favorites do
+    collection do
+      post 'update_favorites'
+    end
+  end
 
 end
